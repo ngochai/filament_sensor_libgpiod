@@ -1,0 +1,51 @@
+<h3>{{ _('Filament Sensor Simplified') }}</h3>
+<form id="filamentsensorsimplified_settings" class="form-horizontal">
+    <div class="alert alert-info" data-bind="visible: printing">
+        <i class="fas icon-lock fa-hourglass-half  iconRight"></i>
+        {{ _('All settings are disabled while printing') }}
+    </div>
+
+    <div class="control-group">
+        <label class="control-label" for="filamentsensorsimplified_settings_gpioNumber">{{ _('GPIO Number') }}</label>
+        <div class="controls">            
+            <input id="filamentsensorsimplified_settings_gpioNumber" type="text" class="input-mini" data-bind="value: settingsViewModel.settings.plugins.filamentsensorsimplified.gpio_number, disable:printing">
+        </div>
+    </div>
+
+    <div class="control-group">
+        <label class="control-label" for="filamentsensorsimplified_settings_gpioOffset">{{ _('GPIO Offset') }}</label>
+        <div class="controls">
+            <input id="filamentsensorsimplified_settings_gpioOffset" type="number" class="input-mini" data-bind="value: settingsViewModel.settings.plugins.filamentsensorsimplified.gpio_offset, disable:printing" required>
+        </div>
+    </div>
+
+    <div class="control-group">
+        <label class="control-label">{{ _('Switch type') }}</label>
+        <div class="controls">
+            <select id="filamentsensorsimplified_settings_triggeredInput" data-bind="value: settingsViewModel.settings.plugins.filamentsensorsimplified.triggered, disable:printing" required>
+                <option value=0>{{ _('Triggered when open') }}</option>
+                <option value=1>{{ _('Triggered when closed') }}</option>
+            </select>
+            <span class="help-block">Select if the switch is triggered when open or closed.</span>
+        </div>
+    </div>
+
+    <div class="control-group">
+        <label class="control-label" for="filamentsensorsimplified_settings_commandInput">{{ _('Command to send') }}</label>
+        <div class="controls">
+            <input id="filamentsensorsimplified_settings_commandInput" type="text" class="input-large" data-bind="value: settingsViewModel.settings.plugins.filamentsensorsimplified.g_code, disable:printing">
+            <span class="help-block">Which G-code will be sent to printer on filament runout.</span>
+        </div>
+    </div>
+
+    <div class="control-group">
+        <div class="controls">
+            <strong id="filamentsensorsimplified_settings_testResult" data-bind="html: testSensorResult"></strong>
+            <input type="button" class="btn btn-info" data-bind="click: testSensor, disable:printing" value="Test sensor">
+        </div>
+    </div>
+
+
+    <p>For more information click <a target="_blank" href="https://github.com/LuckyX182/Filament_sensor_simplified">here</a></p>
+
+</form>
