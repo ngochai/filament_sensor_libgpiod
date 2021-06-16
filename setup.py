@@ -33,7 +33,7 @@ plugin_url = "https://github.com/ngochai/filament_sensor_libgpiod"
 plugin_license = "AGPLv3"
 
 # Any additional requirements besides OctoPrint should be listed here
-plugin_requires = []
+plugin_requires = [gpiod]
 
 ### --------------------------------------------------------------------------------------------------------------------
 ### More advanced options that you usually shouldn't have to touch follow after this point
